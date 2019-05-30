@@ -10,12 +10,30 @@
 <form action="#" th:action="@{processForm}" th:object="${student}" th:method="POST">
 
     <label th:for="firstName">First Name</label>
-    <input  type="text" th:field="*{firstName}"/>
+    <input type="text" th:field="*{firstName}"/>
     <br><br>
 
     <label th:for="lastName">Last Name</label>
-    <input  type="text" th:field="*{lastName}"/>
+    <input type="text" th:field="*{lastName}"/>
     <br><br>
+
+    <label th:for="country">Country</label>
+    <select th:field="*{country}">
+   <!--     <option th:each="country : ${student.countryOptions}"
+                th:value="${country}"
+                th:text="${country}"></option>-->
+
+        <option th:each="entry : ${student.countryOptions.entrySet()}" th:value="${entry.key}" th:text="${entry.value}">
+            This will be replaced - is only used for natural templating
+        </option>
+    </select>
+
+    <br><br>
+
+    <label th:for="favouriteLanguage">Favourite Language: </label>
+
+    <br><br>
+
 
     <input type="submit" value="Submit">
 
