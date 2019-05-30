@@ -31,6 +31,16 @@
     <input type="number" th:field="*{freePasses}"/>
     <span th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" th:errorclass="fieldError"></span>
 
+    <br><br>
+    <label th:for="postalCode">Postal Code</label>
+    <input type="text" th:field="*{postalCode}"/>
+    <span th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" th:errorclass="fieldError"></span>
+
+    <br><br>
+    <label th:for="courseCode">Course Code</label>
+    <input type="text" th:field="*{courseCode}"/>
+    <span th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" th:errorclass="fieldError"></span>
+
 
     <br><br>
 
