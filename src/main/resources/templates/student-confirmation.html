@@ -12,6 +12,12 @@
 
 <p th:text="'Favourite Language: ' + ${student.favouriteLanguage} "/>
 
+<p>Operating Systems</p>
+
+<ul>
+    <li th:each="os: ${ student.operatingSystems}" th:text="${os}">
+    </li>
+</ul>
 
 
 </body>

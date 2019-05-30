@@ -14,6 +14,8 @@ public class Student {
 
     private String favouriteLanguage;
 
+    private String[] operatingSystems;
+
 
     public Student() {
 
@@ -68,4 +70,12 @@ public class Student {
         this.favouriteLanguage = favouriteLanguage;
     }
 
+
+    public String[] getOperatingSystems() {
+        return operatingSystems;
+    }
+
+    public void setOperatingSystems(String[] operatingSystems) {
+        this.operatingSystems = operatingSystems;
+    }
 }
