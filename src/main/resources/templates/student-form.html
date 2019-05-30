@@ -19,9 +19,9 @@
 
     <label th:for="country">Country</label>
     <select th:field="*{country}">
-   <!--     <option th:each="country : ${student.countryOptions}"
-                th:value="${country}"
-                th:text="${country}"></option>-->
+        <!--     <option th:each="country : ${student.countryOptions}"
+                     th:value="${country}"
+                     th:text="${country}"></option>-->
 
         <option th:each="entry : ${student.countryOptions.entrySet()}" th:value="${entry.key}" th:text="${entry.value}">
             This will be replaced - is only used for natural templating
@@ -31,6 +31,21 @@
     <br><br>
 
     <label th:for="favouriteLanguage">Favourite Language: </label>
+
+    <ul>
+        <li>
+            <input type="radio" th:field="*{favouriteLanguage}" th:value="Java"/>
+            <label th:for="Java" th:text="Java">Wireframe</label>
+            <input type="radio" th:field="*{favouriteLanguage}" th:value="Python"/>
+            <label th:for="Python" th:text="Python">Wireframe</label>
+            <input type="radio" th:field="*{favouriteLanguage}"
+                   th:value="Golang"/>
+            <label th:for="GoLang" th:text="GoLang">Wireframe</label>
+            <input type="radio" th:field="*{favouriteLanguage}"
+                   th:value="JavaScript"/>
+            <label th:for="JavaScript" th:text="JavaScript">Wireframe</label>
+        </li>
+    </ul>
 
     <br><br>
 

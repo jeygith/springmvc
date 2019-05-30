@@ -12,13 +12,7 @@ public class Student {
 
     private LinkedHashMap<String, String> countryOptions;
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
+    private String favouriteLanguage;
 
 
     public Student() {
@@ -31,6 +25,8 @@ public class Student {
         countryOptions.put("FR", "France");
         countryOptions.put("KE", "Kenya");
         countryOptions.put("DE", "Germany");
+
+
 
     }
 
@@ -54,4 +50,22 @@ public class Student {
     public LinkedHashMap<String, String> getCountryOptions() {
         return countryOptions;
     }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+
+    public String getFavouriteLanguage() {
+        return favouriteLanguage;
+    }
+
+    public void setFavouriteLanguage(String favouriteLanguage) {
+        this.favouriteLanguage = favouriteLanguage;
+    }
+
 }
