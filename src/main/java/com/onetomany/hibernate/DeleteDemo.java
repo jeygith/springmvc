@@ -1,12 +1,12 @@
-package com.onetoone.hibernate;
+package com.onetomany.hibernate;
 
-import com.onetoone.hibernate.entity.Instructor;
-import com.onetoone.hibernate.entity.InstructorDetail;
+import com.onetomany.hibernate.entity.Instructor;
+import com.onetomany.hibernate.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class DeleteInstructorDetailDemo {
+public class DeleteDemo {
 
 
     public static void main(String[] args) {
@@ -24,19 +24,15 @@ public class DeleteInstructorDetailDemo {
 
             session.beginTransaction();
 
-            int id = 6;
+            int id = 1;
+            Instructor instructor = session.get(Instructor.class, id);
 
-            InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
+            System.out.println("Found instructor: " + instructor);
 
-
-            System.out.println("Found instructor Detail: " + instructorDetail);
-
-            System.out.println("Found instructor : " + instructorDetail.getInstructor());
-
-            // break bi directional link
-            instructorDetail.getInstructor().setInstructorDetail(null);
-
-            session.delete(instructorDetail);
+            if (instructor != null) {
+                System.out.println("Deleting Instructor: " + instructor);
+                session.delete(instructor);
+            }
 
 
             session.getTransaction().commit();

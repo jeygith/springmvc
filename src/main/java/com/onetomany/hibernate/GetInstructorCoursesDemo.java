@@ -1,20 +1,22 @@
-package com.onetoone.hibernate;
+package com.onetomany.hibernate;
 
-import com.onetoone.hibernate.entity.Instructor;
-import com.onetoone.hibernate.entity.InstructorDetail;
+import com.onetomany.hibernate.entity.Course;
+import com.onetomany.hibernate.entity.Instructor;
+import com.onetomany.hibernate.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class DeleteInstructorDetailDemo {
+public class GetInstructorCoursesDemo {
 
 
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
-                .configure("hibernate2.cfg.xml")
+                .configure("hibernate3.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
+                .addAnnotatedClass(Course.class)
                 .buildSessionFactory();
 
         Session session = factory.getCurrentSession();
@@ -24,19 +26,13 @@ public class DeleteInstructorDetailDemo {
 
             session.beginTransaction();
 
-            int id = 6;
+            int id = 1;
 
-            InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
+            Instructor instructor = session.get(Instructor.class, id);
 
+            System.out.println("Instructor: " + instructor);
 
-            System.out.println("Found instructor Detail: " + instructorDetail);
-
-            System.out.println("Found instructor : " + instructorDetail.getInstructor());
-
-            // break bi directional link
-            instructorDetail.getInstructor().setInstructorDetail(null);
-
-            session.delete(instructorDetail);
+            System.out.println("Courses: " + instructor.getCourses());
 
 
             session.getTransaction().commit();

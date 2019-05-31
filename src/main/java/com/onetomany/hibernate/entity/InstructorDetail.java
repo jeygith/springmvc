@@ -1,4 +1,4 @@
-package com.onetoone.hibernate.entity;
+package com.onetomany.hibernate.entity;
 
 
 import javax.persistence.*;
